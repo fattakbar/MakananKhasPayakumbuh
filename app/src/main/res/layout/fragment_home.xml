@@ -55,6 +55,7 @@
             android:layout_marginBottom="@dimen/activity_vertical_margin">
         </RelativeLayout>
         <Button
+            android:id="@+id/btn_contact"
             style="@style/ButtonGeneral"
             android:text="Hubungi Kami" />
     </LinearLayout>

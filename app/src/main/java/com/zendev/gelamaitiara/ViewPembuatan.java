@@ -1,13 +1,17 @@
 package com.zendev.gelamaitiara;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-public class ViewPembuatan extends AppCompatActivity {
+public class ViewPembuatan extends AppCompatActivity{
 
     public static final String EXTRA_NAME = "extra_name";
     public static final String EXTRA_IMG = "extra_img";
@@ -17,6 +21,7 @@ public class ViewPembuatan extends AppCompatActivity {
 
     TextView tvNama, tvKomposisi, tvCara, tvKategori;
     ImageView ivGambar;
+    Button btnBeli;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +33,19 @@ public class ViewPembuatan extends AppCompatActivity {
         tvCara = findViewById(R.id.tv_cara);
         tvKomposisi = findViewById(R.id.tv_komposisi);
         tvKategori = findViewById(R.id.tv_kategori);
+        btnBeli = findViewById(R.id.btn_pesan);
 
         String nama = getIntent().getStringExtra(EXTRA_NAME);
         String komposisi = getIntent().getStringExtra(EXTRA_KOMPOSISI);
         String cara = getIntent().getStringExtra(EXTRA_CARA);
         String kategori = getIntent().getStringExtra(EXTRA_KATEGORI);
+
+        btnBeli.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendWhatsapp(view);
+            }
+        });
 
         tvNama.setText(nama);
         tvCara.setText(cara);
@@ -42,5 +55,20 @@ public class ViewPembuatan extends AppCompatActivity {
         Glide.with(this)
                 .load(getIntent().getStringExtra(EXTRA_IMG))
                 .into(ivGambar);
+
+    }
+
+    public void sendWhatsapp(View view){
+        try {
+            String text = "Halo Admin, Saya Ingin Melakukan Pemesanan";
+            String number = "6285278870436";
+
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+number + "&text="+text));
+            startActivity(intent);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

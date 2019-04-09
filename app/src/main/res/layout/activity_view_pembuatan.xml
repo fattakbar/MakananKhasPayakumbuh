@@ -96,10 +96,11 @@
                 style="@style/TextContent"
                 android:layout_toRightOf="@id/profile_image"
                 android:layout_toEndOf="@id/profile_image"
-                android:text="Wak Doyok"
+                android:text="Tiara"
                 android:layout_centerVertical="true"/>
         </RelativeLayout>
         <Button
+            android:id="@+id/btn_pesan"
             style="@style/ButtonGeneral"
             android:text="Beli" />
     </LinearLayout>

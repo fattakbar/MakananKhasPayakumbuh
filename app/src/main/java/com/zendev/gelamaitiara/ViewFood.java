@@ -1,7 +1,11 @@
 package com.zendev.gelamaitiara;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +21,7 @@ public class ViewFood extends AppCompatActivity {
 
     TextView tvNama, tvDeskripsi, tvKategori, tvHarga;
     ImageView ivGambar;
+    Button btnBeli;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,14 @@ public class ViewFood extends AppCompatActivity {
         tvKategori = findViewById(R.id.tv_kategori);
         tvHarga = findViewById(R.id.tv_harga);
         ivGambar = findViewById(R.id.iv_gambar);
+        btnBeli = findViewById(R.id.btn_beli);
+
+        btnBeli.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendWhatsapp(view);
+            }
+        });
 
         String deskripsi = getIntent().getStringExtra(EXTRA_DESKRIPSI);
         String food = getIntent().getStringExtra(EXTRA_FOOD);
@@ -42,5 +55,19 @@ public class ViewFood extends AppCompatActivity {
         Glide.with(this)
                 .load(getIntent().getStringExtra(EXTRA_IMG))
                 .into(ivGambar);
+    }
+
+    public void sendWhatsapp(View view){
+        try {
+            String text = "Halo Admin, Saya Ingin Melakukan Pemesanan";
+            String number = "6285278870436";
+
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+number + "&text="+text));
+            startActivity(intent);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
