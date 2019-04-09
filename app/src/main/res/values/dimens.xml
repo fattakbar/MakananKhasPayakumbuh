@@ -13,4 +13,6 @@
     <dimen name="ukuran_judul">29sp</dimen>
     <dimen name="jarak_profile">30dp</dimen>
     <dimen name="jarak_judul">28dp</dimen>
+    <dimen name="image_splash_layout">140dp</dimen>
+    <dimen name="layout_margin_top">12dp</dimen>
 </resources>
