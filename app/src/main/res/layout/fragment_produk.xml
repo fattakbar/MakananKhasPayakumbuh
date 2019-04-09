@@ -7,11 +7,11 @@
     android:orientation="vertical"
     tools:context=".fragment.ProdukFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Produk Fragment"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_food"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_row_food">
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
