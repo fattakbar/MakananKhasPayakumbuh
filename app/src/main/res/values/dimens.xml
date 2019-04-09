@@ -11,4 +11,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="horizontal_margin_detail">8dp</dimen>
     <dimen name="ukuran_judul">29sp</dimen>
+    <dimen name="jarak_profile">30dp</dimen>
+    <dimen name="jarak_judul">28dp</dimen>
 </resources>
