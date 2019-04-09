@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -41,7 +43,7 @@ public class ListPembuatanAdapter extends RecyclerView.Adapter<ListPembuatanAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListPembuatanAdapter.MyViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(@NonNull ListPembuatanAdapter.MyViewHolder myViewHolder, final int i) {
         myViewHolder.tvName.setText(getListPembuatan().get(i).getName());
         myViewHolder.tvPembuatan.setText(getListPembuatan().get(i).getPembuatan());
 
@@ -49,6 +51,13 @@ public class ListPembuatanAdapter extends RecyclerView.Adapter<ListPembuatanAdap
                 .load(getListPembuatan().get(i).getImage())
                 .apply(new RequestOptions().override(55,55))
                 .into(myViewHolder.imgPhoto);
+
+        myViewHolder.parentPembuatan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Kamu Memilih " + getListPembuatan().get(i).getName(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
@@ -61,10 +70,11 @@ public class ListPembuatanAdapter extends RecyclerView.Adapter<ListPembuatanAdap
         TextView tvName;
         TextView tvPembuatan;
         ImageView imgPhoto;
-        //        RelativeLayout parent;
+        RelativeLayout parentPembuatan;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            parentPembuatan = itemView.findViewById(R.id.parent_pembuatan);
             tvName = itemView.findViewById(R.id.tv_item_name);
             tvPembuatan = itemView.findViewById(R.id.tv_item_make);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);

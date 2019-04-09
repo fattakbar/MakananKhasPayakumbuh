@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -41,7 +43,7 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.Catego
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryViewHolder categoryViewHolder, int i) {
+    public void onBindViewHolder(@NonNull CategoryViewHolder categoryViewHolder, final int i) {
         categoryViewHolder.tvName.setText(getListFood().get(i).getName());
         categoryViewHolder.tvFood.setText(getListFood().get(i).getFood());
 
@@ -49,6 +51,13 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.Catego
                 .load(getListFood().get(i).getImage())
                 .apply(new RequestOptions().override(55,55))
                 .into(categoryViewHolder.imgPhoto);
+
+        categoryViewHolder.parentFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Kamu Memilih " + getListFood().get(i).getName(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
@@ -60,10 +69,11 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.Catego
         TextView tvName;
         TextView tvFood;
         ImageView imgPhoto;
-//        RelativeLayout parent;
+        RelativeLayout parentFood;
 
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
+            parentFood = itemView.findViewById(R.id.parent_food);
             tvName = itemView.findViewById(R.id.tv_item_name);
             tvFood = itemView.findViewById(R.id.tv_item_food);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
