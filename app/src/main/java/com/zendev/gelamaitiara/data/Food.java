@@ -2,7 +2,15 @@ package com.zendev.gelamaitiara.data;
 
 public class Food {
 
-    String name, food, description, image;
+    String name, food, description, image, price;
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
     public String getName() {
         return name;

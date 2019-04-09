@@ -6,4 +6,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description_example_string">Rengginang Merupakan Makanan ......</string>
     <string name="food_example_string">Rengginang</string>
+    <string name="example_image">Example Image</string>
+    <string name="sample_deskripsi">Gelamai Adalah ...</string>
+    <string name="sample_judul">Gelamai</string>
 </resources>

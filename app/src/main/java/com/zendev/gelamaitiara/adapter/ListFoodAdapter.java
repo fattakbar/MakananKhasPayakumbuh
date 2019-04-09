@@ -1,6 +1,7 @@
 package com.zendev.gelamaitiara.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.zendev.gelamaitiara.ViewFood;
 import com.zendev.gelamaitiara.data.Food;
 import com.zendev.gelamaitiara.R;
 
@@ -56,6 +58,13 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.Catego
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "Kamu Memilih " + getListFood().get(i).getName(), Toast.LENGTH_LONG).show();
+                Intent moveDetail = new Intent(context, ViewFood.class);
+                moveDetail.putExtra(ViewFood.EXTRA_IMG, getListFood().get(i).getImage());
+                moveDetail.putExtra(ViewFood.EXTRA_FOOD, getListFood().get(i).getName());
+                moveDetail.putExtra(ViewFood.EXTRA_DESKRIPSI, getListFood().get(i).getDescription());
+                moveDetail.putExtra(ViewFood.EXTRA_CATEGORY, getListFood().get(i).getFood());
+                moveDetail.putExtra(ViewFood.EXTRA_PRICE, getListFood().get(i).getPrice());
+                context.startActivity(moveDetail);
             }
         });
     }

@@ -1,6 +1,7 @@
 package com.zendev.gelamaitiara.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.zendev.gelamaitiara.R;
+import com.zendev.gelamaitiara.ViewFood;
+import com.zendev.gelamaitiara.ViewPembuatan;
 import com.zendev.gelamaitiara.data.Pembuatan;
 
 import java.util.ArrayList;
@@ -45,7 +48,7 @@ public class ListPembuatanAdapter extends RecyclerView.Adapter<ListPembuatanAdap
     @Override
     public void onBindViewHolder(@NonNull ListPembuatanAdapter.MyViewHolder myViewHolder, final int i) {
         myViewHolder.tvName.setText(getListPembuatan().get(i).getName());
-        myViewHolder.tvPembuatan.setText(getListPembuatan().get(i).getPembuatan());
+        myViewHolder.tvPembuatan.setText(getListPembuatan().get(i).getKategori());
 
         Glide.with(context)
                 .load(getListPembuatan().get(i).getImage())
@@ -56,6 +59,13 @@ public class ListPembuatanAdapter extends RecyclerView.Adapter<ListPembuatanAdap
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "Kamu Memilih " + getListPembuatan().get(i).getName(), Toast.LENGTH_LONG).show();
+                Intent moveDetail = new Intent(context, ViewPembuatan.class);
+                moveDetail.putExtra(ViewPembuatan.EXTRA_IMG, getListPembuatan().get(i).getImage());
+                moveDetail.putExtra(ViewPembuatan.EXTRA_NAME, getListPembuatan().get(i).getName());
+                moveDetail.putExtra(ViewPembuatan.EXTRA_KATEGORI, getListPembuatan().get(i).getKategori());
+                moveDetail.putExtra(ViewPembuatan.EXTRA_KOMPOSISI, getListPembuatan().get(i).getKomposisi());
+                moveDetail.putExtra(ViewPembuatan.EXTRA_CARA, getListPembuatan().get(i).getPembuatan());
+                context.startActivity(moveDetail);
             }
         });
     }
