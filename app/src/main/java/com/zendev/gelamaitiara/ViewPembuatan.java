@@ -21,7 +21,7 @@ public class ViewPembuatan extends AppCompatActivity{
 
     TextView tvNama, tvKomposisi, tvCara, tvKategori;
     ImageView ivGambar;
-    Button btnBeli;
+//    Button btnBeli;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,19 +33,19 @@ public class ViewPembuatan extends AppCompatActivity{
         tvCara = findViewById(R.id.tv_cara);
         tvKomposisi = findViewById(R.id.tv_komposisi);
         tvKategori = findViewById(R.id.tv_kategori);
-        btnBeli = findViewById(R.id.btn_pesan);
+//        btnBeli = findViewById(R.id.btn_pesan);
 
         String nama = getIntent().getStringExtra(EXTRA_NAME);
         String komposisi = getIntent().getStringExtra(EXTRA_KOMPOSISI);
         String cara = getIntent().getStringExtra(EXTRA_CARA);
         String kategori = getIntent().getStringExtra(EXTRA_KATEGORI);
 
-        btnBeli.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendWhatsapp(view);
-            }
-        });
+//        btnBeli.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                sendWhatsapp(view);
+//            }
+//        });
 
         tvNama.setText(nama);
         tvCara.setText(cara);

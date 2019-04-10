@@ -86,7 +86,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="56dp"
                 android:layout_height="56dp"
-                android:src="@drawable/sample_picture"
+                android:src="@drawable/mylogo"
                 android:layout_centerVertical="true"
                 android:id="@+id/profile_image"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
@@ -99,10 +99,6 @@
                 android:text="Tiara"
                 android:layout_centerVertical="true"/>
         </RelativeLayout>
-        <Button
-            android:id="@+id/btn_pesan"
-            style="@style/ButtonGeneral"
-            android:text="Beli" />
     </LinearLayout>
 
 </ScrollView>

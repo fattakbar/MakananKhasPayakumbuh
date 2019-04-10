@@ -58,7 +58,7 @@ public class ListPembuatanAdapter extends RecyclerView.Adapter<ListPembuatanAdap
         myViewHolder.parentPembuatan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Kamu Memilih " + getListPembuatan().get(i).getName(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(context, "Kamu Memilih " + getListPembuatan().get(i).getName(), Toast.LENGTH_LONG).show();
                 Intent moveDetail = new Intent(context, ViewPembuatan.class);
                 moveDetail.putExtra(ViewPembuatan.EXTRA_IMG, getListPembuatan().get(i).getImage());
                 moveDetail.putExtra(ViewPembuatan.EXTRA_NAME, getListPembuatan().get(i).getName());

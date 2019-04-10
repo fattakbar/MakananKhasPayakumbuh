@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.zendev.gelamaitiara.data.Food;
 
 public class ViewFood extends AppCompatActivity {
 
@@ -58,8 +59,9 @@ public class ViewFood extends AppCompatActivity {
     }
 
     public void sendWhatsapp(View view){
+        String food = getIntent().getStringExtra(EXTRA_FOOD);
         try {
-            String text = "Halo Admin, Saya Ingin Melakukan Pemesanan";
+            String text = "Halo Admin, Saya Ingin Melakukan Pemesanan "+ food;
             String number = "6285278870436";
 
             Intent intent = new Intent(Intent.ACTION_VIEW);

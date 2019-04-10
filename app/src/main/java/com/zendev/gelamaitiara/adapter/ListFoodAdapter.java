@@ -57,7 +57,7 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.Catego
         categoryViewHolder.parentFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Kamu Memilih " + getListFood().get(i).getName(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(context, "Kamu Memilih " + getListFood().get(i).getName(), Toast.LENGTH_LONG).show();
                 Intent moveDetail = new Intent(context, ViewFood.class);
                 moveDetail.putExtra(ViewFood.EXTRA_IMG, getListFood().get(i).getImage());
                 moveDetail.putExtra(ViewFood.EXTRA_FOOD, getListFood().get(i).getName());
